@@ -1,10 +1,13 @@
----
-- name: demo plabook
-  hosts: all
+- name: Configure systems
+  hosts: 192.168.10.166
   become: yes
+
   tasks:
-    - name: Run demo task of pinging servers only
-      ping: 
-    - name: debug task
-      debug: 
-        msg: "{{ ansible_facts }}"
+
+- name: Call Roles
+  hosts: servers
+  roles:
+   #- hostname
+   #- firewalld
+   #- ntp-config
+   - motd
