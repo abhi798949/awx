@@ -1,23 +1,18 @@
-- name: Gather facts from the remote host
-  hosts: R1
-  gather_facts: yes
-  become: yes
-  become_user: your_sudo_user
-  become_method: sudo
-  vars:
-    ansible_python_interpreter: /usr/bin/python3
-
-  tasks:
-    - name: Set IP address
-      ios_config:
-        lines:
-          - ip address 192.168.100.200 255.255.255.0
-          - no shutdown
-        parents: interface FastEthernet2/0
-      register: output
-
-    - debug:
-        msg: "{{ output }}"
+---
+- hosts: R1
+  gather_facts: no
+  connection: network_cli
+tasks:
+   -name: set ip add
+    ios_config:
+      lines:
+        - ip add 192.168.100.200 255.255.255.0
+        - no shutdown
+      parents: interface fastEthernet2/0
+    register: output
+-debug:
+   msg: "{{output}""
+    
 
     
 
