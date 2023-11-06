@@ -1,6 +1,11 @@
 ---
 - name: Configure VLANs on IOSXR
   hosts: 192.168.10.150
+  gather_facts: no
+  connection: network_cli
+  vars:
+    ansible_network_os: ios  # Specify the appropriate network operating system
+    ansible_python_interpreter: /usr/bin/python3
   tasks:
     - name: Configure VLANs
        cisco.ios.ios_vlans:
