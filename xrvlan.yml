@@ -6,14 +6,17 @@
   vars:
     ansible_network_os: ios  # Specify the appropriate network operating system
     ansible_python_interpreter: /usr/bin/python3
+
   tasks:
     - name: Configure VLANs
-       cisco.ios.ios_vlans:
+      cisco.ios.ios_vlans:
         vlans:
           - id: 10
             name: VLAN10
           - id: 20
             name: VLAN20
         state: present
-  register: output
-  -debug:
+      register: output
+
+    - debug:
+        msg: "{{ output }}"
