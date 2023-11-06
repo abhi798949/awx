@@ -1,10 +1,20 @@
-- name: Configure OSPF
-  iosxr_config:
-    lines:
-      - router ospf 1
-      - network 192.168.1.0 0.0.0.255 area 0
-      - network 10.0.0.0 0.255.255.255 area 0
-      - passive-interface Loopback0
-      - commit
-    parents: none
-  register: ospf_config
+---
+- hosts: 192.168.10.100
+  gather_facts: no
+  connection: network_cli
+  vars:
+    ansible_network_os: ios  # Specify the appropriate network operating system
+    ansible_python_interpreter: /usr/bin/python3
+
+  tasks:
+    - name: Configure OSPF
+      iosxr_config:
+        lines:
+          - router ospf 1
+          - network 192.168.1.0 0.0.0.255 area 0
+          - network 10.0.0.0 0.255.255.255 area 0
+          - passive-interface Loopback0
+          - commit
+        parents: none
+      register: ospf_config
+
