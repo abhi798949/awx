@@ -1,0 +1,17 @@
+---
+- hosts: 192.168.10.100
+  gather_facts: no
+  connection: network_cli
+
+  tasks:
+    - name: Loopback config
+      ios_config:
+        lines:
+          - interface Loopback0
+          - ip address 1.1.1.1 255.255.255.255
+          - no shutdown
+        parents: none
+      register: op
+
+    - debug:
+        msg: "{{ op }}"
