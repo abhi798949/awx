@@ -1,17 +1,18 @@
 ---
-- hosts: 192.168.10.100
+- hosts: 192.168.10.166
   gather_facts: no
   connection: network_cli
+  vars:
+    ansible_network_os: ios  # Specify the appropriate network operating system
 
   tasks:
-    - name: Loopback config
+    - name: Set IP address
       ios_config:
         lines:
-          - interface Loopback0
-          - ip address 1.1.1.1 255.255.255.255
+          - ip address 1.1.1.1 255.255.255.0
           - no shutdown
-        parents: Interface loopback0
-      register: op
+        parents: interface loopback0
+      register: output
 
     - debug:
-        msg: "{{ op }}"
+        msg: "{{ output }}"
