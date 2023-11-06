@@ -10,7 +10,7 @@
           - interface Loopback0
           - ip address 1.1.1.1 255.255.255.255
           - no shutdown
-        parents: none
+        parents: Interface loopback0
       register: op
 
     - debug:
