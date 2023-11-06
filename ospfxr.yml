@@ -15,6 +15,6 @@
           - network 10.0.0.0 0.255.255.255 area 0
           - passive-interface Loopback0
           - commit
-        parents: none
+        parents: interface GigabitEthernet0/0/0/4
       register: ospf_config
 
