@@ -17,4 +17,3 @@
           - commit
         parents: none
       register: ospf_config
-
