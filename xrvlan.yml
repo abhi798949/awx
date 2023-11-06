@@ -9,7 +9,7 @@
 
   tasks:
     - name: Configure VLANs
-      cisco.ios.ios_vlans:
+      cisco.iosxr.iosxr_vlans:
         vlans:
           - id: 10
             name: VLAN10
