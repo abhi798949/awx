@@ -2,6 +2,9 @@
 - hosts: 192.168.10.166
   gather_facts: no
   connection: network_cli
+  vars:
+    ansible_network_os: ios  # Specify the appropriate network operating system
+
   tasks:
     - name: Set IP address
       ios_config:
@@ -13,8 +16,3 @@
 
     - debug:
         msg: "{{ output }}"
-
-
-    
-
-  
