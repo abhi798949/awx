@@ -1,5 +1,5 @@
 ---
-- hosts: R1
+- hosts: 192.168.10.166
   gather_facts: no
   connection: network_cli
   tasks:
