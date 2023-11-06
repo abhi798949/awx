@@ -1,13 +1,24 @@
-- name: Configure systems
-  hosts: 192.168.10.166
+- name: Gather facts from the remote host
+  hosts: 192.168.10.100
+  gather_facts: yes
   become: yes
+  become_user: your_sudo_user
+  become_method: sudo
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
 
   tasks:
+    - name: Set IP address
+      ios_config:
+        lines:
+          - ip address 192.168.100.200 255.255.255.0
+          - no shutdown
+        parents: interface FastEthernet2/0
+      register: output
 
-- name: Call Roles
-  hosts: servers
-  roles:
-   #- hostname
-   #- firewalld
-   #- ntp-config
-   - motd
+    - debug:
+        msg: "{{ output }}"
+
+    
+
+  
