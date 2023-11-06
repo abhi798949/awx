@@ -1,5 +1,5 @@
 - name: Gather facts from the remote host
-  hosts: 192.168.10.100
+  hosts: R1
   gather_facts: yes
   become: yes
   become_user: your_sudo_user
