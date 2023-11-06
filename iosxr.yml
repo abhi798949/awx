@@ -1,0 +1,21 @@
+---
+- hosts: 192.168.10.150
+  gather_facts: no
+  connection: network_cli
+
+  tasks:
+    - name: Set management IP
+      iosxr_config:
+        lines:
+          - ipv4 address 172.32.1.7/24
+          - no shutdown
+          - vrf Test
+          - exit
+          - ipv4 virtual address vrf Test 172.32.1.7/24
+          - router static vrf Test address-family ipv4 unicast 0.0.0.0/0 172.32.1.7
+          - commit
+        parents: interface mgmtEth0/0/CPU0/0
+      register: op
+
+    - debug:
+        msg: "{{ op }}"
