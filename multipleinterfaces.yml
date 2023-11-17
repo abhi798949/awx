@@ -10,7 +10,7 @@
     - name: set ip add
       iosxr_config:
         lines:
-          - ip add 192.168.100.200 255.255.255.0
+          - ip add 192.168.100.10 255.255.255.0
           - no shutdown
           - commit
         parents: interface gigabitEthernet0/0/0/2
@@ -18,7 +18,7 @@
     - name: set ip add2
       iosxr_config:
         lines:
-          - ip add 192.168.100.300 255.255.255.0
+          - ip add 192.168.100.20 255.255.255.0
           - no shutdown
           - commit
         parents: interface gigabitEthernet0/0/0/3
@@ -26,7 +26,7 @@
     - name: set ip add3
       iosxr_config:
         lines:
-          - ip add 192.168.100.200 255.255.255.0
+          - ip add 192.168.100.30 255.255.255.0
           - no shutdown
           - commit
         parents: interface gigabitEthernet0/0/0/4
