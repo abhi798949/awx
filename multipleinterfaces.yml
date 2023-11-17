@@ -8,7 +8,7 @@
 
   tasks:
     - name: set ip add
-       iosxr_config:
+      iosxr_config:
         lines:
           - ip add 192.168.100.200 255.255.255.0
           - no shutdown
@@ -16,22 +16,22 @@
         parents: interface gigabitEthernet0/0/0/2
 
     - name: set ip add2
-       cisco.iosxr.iosxr_config:
+      cisco.iosxr.iosxr_config:
         lines:
           - ip add 192.168.100.300 255.255.255.0
           - no shutdown
           - commit
         parents: interface gigabitEthernet0/0/0/3
 
-    - name: set ip add
-       cisco.iosxr.iosxr_config:
+    - name: set ip add3
+      cisco.iosxr.iosxr_config:
         lines:
           - ip add 192.168.100.200 255.255.255.0
           - no shutdown
           - commit
         parents: interface gigabitEthernet0/0/0/4
 
+  register: output
 
-      register: output
-    - debug:
-        msg: "{{output}}"
+- debug:
+    msg: "{{ output }}"
