@@ -3,7 +3,7 @@
   gather_facts: no
   connection: network_cli
   vars:
-    ansible_network_os: iosxr  # Specify the appropriate network operating system
+    ansible_network_os: iosxr
     ansible_python_interpreter: /usr/bin/python3
 
   tasks:
@@ -16,7 +16,7 @@
         parents: interface gigabitEthernet0/0/0/2
 
     - name: set ip add2
-      iosxr_config:
+      cisco.iosxr.iosxr_config:
         lines:
           - ip add 192.168.100.300 255.255.255.0
           - no shutdown
@@ -24,14 +24,13 @@
         parents: interface gigabitEthernet0/0/0/3
 
     - name: set ip add3
-      iosxr_config:
+      cisco.iosxr.iosxr_config:
         lines:
           - ip add 192.168.100.200 255.255.255.0
           - no shutdown
           - commit
         parents: interface gigabitEthernet0/0/0/4
+      register: output
 
-  register: output
-
-- debug:
-    msg: "{{ output }}"
+    - debug:
+        msg: "{{ output }}"
