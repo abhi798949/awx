@@ -1,5 +1,5 @@
 ---
-- hosts: 192.168.10.166
+- hosts: 192.168.20.132
   gather_facts: no
   connection: network_cli
   vars:
