@@ -1,18 +1,25 @@
 AWX is a modern web UI (User Interface) and API (Application Programming interface) to manage your organization's Ansible Playbook, Inventories, Vault, and Credentials. It is the Open-Source upstream project of the Ansible Automation Controller (formerly Ansible Tower).
 
 FEATURES OF AWX:
-Playbook- Playbook is used to executed tasks in the correct order and with    appropriate   parameters, playbook file save in. yaml extension			   
+Playbook- Playbook is used to executed tasks in the correct order and with    appropriate   parameters, playbook file save in. yaml extension		
+
 Invetory- inventory file contained host address
+
 API- Apis are used in awx
+
 Workflow- The only job of a workflow is to trigger other jobs in specific orders to achieve certain goals.
+
 Templates- Templates can be used to store common variables, snippets of code, or even entire playbook.
+
 Teams- Teams provide a powerful and flexible approach to organizing, controlling, and managing access in Ansible AWX.
 
 
 ![image](https://github.com/abhi798949/awx/assets/120705695/437ee234-ea50-4470-9da2-2f7ca9329918)
 
 INSTALLATION PROCESS:
+
 Before installing the  awx-ansible ,We need install some prerequired tool.
+
 Ubuntu 20.04 or Later
 Python3
 Ansbile
